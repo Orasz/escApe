@@ -1,11 +1,11 @@
-main.e:main.o classes.o
-	g++ main.o classes.o -o main.e -lsfml-graphics -lsfml-window -lsfml-system
+main.e:build/main.o build/classes.o
+	g++ build/main.o build/classes.o -o main.e -lsfml-graphics -lsfml-window -lsfml-system
 
-main.o:main.cpp
-	g++ -g -c -lstdc++ -std=c++11 main.cpp
+build/main.o:src/main.cpp
+	g++ -g -c -lstdc++ -std=c++11 src/main.cpp -o build/main.o
 
-classes.o:classes.cpp
-	g++ -g -c -std=c++11 classes.cpp
+build/classes.o:src/classes.cpp
+	g++ -g -c -std=c++11 src/classes.cpp -o build/classes.o
 
 clean:
 	rm -f *.o main
